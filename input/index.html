@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Input Stasiun</title>
+</head>
+<body>
+<h2>Form Input Stasiun Baru</h2>
+<form action="input.php" onsubmit="return validateForm()" method="post">
+    <label>Nama Stasiun:</label><br>
+    <input type="text" name="nama_stasiun" required><br><br>
+    
+    <label>Jenis:</label><br>
+    <input type="text" name="jenis" value="Stasiun Penumpang" required><br><br>
+
+    <label>Status:</label><br>
+    <input type="text" name="status" value="Rencana" required><br><br>
+
+    <label>Latitude:</label><br>
+    <input type="text" id="lat" name="latitude" required><br><br>
+
+    <label>Longitude:</label><br>
+    <input type="text" id="long" name="longitude" required><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+<p id="informasi" style="color:red;"></p>
+
+<script>
+function validateForm() {
+    let lat = document.getElementById("lat").value;
+    let long = document.getElementById("long").value;
+    
+    // Validasi input wajib angka
+    if (isNaN(lat) || isNaN(long)) {
+        document.getElementById("informasi").innerHTML = "Error: Latitude dan Longitude wajib diisi dengan format angka!";
+        return false; 
+    }
+    return true; 
+}
+</script>
+</body>
+</html>
